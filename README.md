@@ -36,5 +36,5 @@ Miroslav Pejic
 
 # Demo / Deployed Instance
 
-<a href="doge-meet-demo.up.railway.app"> doge-meet-demo.up.railway.app </a>
+<a href="doge-meet-demo.up.railway.app" target="_blank"> doge-meet-demo.up.railway.app </a>
 
