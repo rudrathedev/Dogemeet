@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>
+      Meeting || Doge Meet
+    </title>
+ 
+    <meta property="og:type" content="Doge Media" />
+    <meta property="og:site_name" content="Doge Meet" />
+    <meta property="og:title" content="Come and join the meeting with me" />
+    <meta
+      property="og:description"
+      content="Doge Meet lets you collaborate free of tracking or login/signups."
+    />
+    <meta property="og:image" content="/images/smart_dogelogo.png" />
+    
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon.ico"
+    />
+
+    <link rel="stylesheet" href="/css/client.css" />
+    <link rel="stylesheet" href="/css/whiteboard.css" />
+    <!-- https://animate.style -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+
+  <body onload="initPeer()">
+    <!-- just 4SEO Optimization -->
+    <div id="webRTCSeo"><h1>Doge Meet</h1></div>
+
+    <!-- show this before to join -->
+    <div id="loadingDiv">
+      <h1 class="pulsate">Connecting to the Server...</h1>
+      <pre>
+        Don't forget to allow Microphone and Camera access in order to get connected to the meeting.
+      </pre>
+    </div>
+
+
+    <!-- Start left buttons 
+    https://fontawesome.com/icons?d=gallery
+    -->
+    <div id="panelwrapper">
+    <div id="leftButtons">
+      <button id="shareRoomBtn" class="fas fa-users"></button>
+      <button id="audioBtn" class="fas fa-microphone"></button>
+      <button id="videoBtn" class="fas fa-video"></button>
+      <button id="swapCameraBtn" class="fas fa-sync-alt"></button>
+      <button id="screenShareBtn" class="fas fa-desktop"></button>
+      <button id="recordStreamBtn" class="fas fa-record-vinyl"></button>
+      <button id="fullScreenBtn" class="fas fa-expand-alt"></button>
+      <button id="chatRoomBtn" class="fas fa-comment"></button>
+      <button id="myHandBtn" class="fas fa-hand-paper"></button>
+      <button id="whiteboardBtn" class="fas fa-chalkboard-teacher"></button>
+      <button id="mySettingsBtn" class="fas fa-cogs"></button>
+      <button id="aboutBtn" class="fas fa-question"></button>
+      <button id="leaveRoomBtn" class="fas fa-phone-slash"></button>
+    </div>
+    </div>
+    <!-- End left buttons -->
+
+    <!-- Start chat room 
+    https://codepen.io/sajadhsm/pen/odaBdd
+    https://getemoji.com
+    -->
+    <section id="msgerDraggable" class="msger-draggable">
+      <section id="msger" class="msger">
+        <header id="msgerHeader" class="msger-header">
+          <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> Chat
+          </div>
+          <div class="msger-header-options">
+            <button id="msgerCPBtn" class="fas fa-users"></button>
+            <button id="msgerClean" class="fas fa-trash"></button>
+            <button id="msgerSaveBtn" class="fas fa-save"></button>
+            <button id="msgerClose" class="fas fa-times"></button>
+          </div>
+        </header>
+
+        <!-- public messages example -->
+               <main id="msgerChat" class="msger-chat">
+          <div class="msg left-msg">
+            <div
+              class="msg-img"
+              style="background-image: url('/images/smart_dogelogo.png')"
+            ></div>
+
+           <div class="msg-bubble" style="
+    background: deeppink;
+">
+              <div class="msg-info">
+                <div class="msg-info-name">Doge Bot</div>
+                <div class="msg-info-time">Welcome</div>
+              </div>
+
+              <div class="msg-text">Welcome to the Chat !</div>
+            </div>
+
+            </main>
+
+        <div class="msger-inputarea">
+          <input
+            id="msgerInput"
+            class="msger-input"
+            type="text"
+            placeholder="Enter your message..."
+          />
+          <button id="msgerEmojiBtn" class="fas fa-smile"></button>
+          <button id="msgerSendBtn" class="fas fa-paper-plane"></button>
+        </div>
+      </section>
+
+      <!-- Start private msg -->
+      <section id="msgerCP">
+        <section id="msgerCPSec" class="msger">
+          <header id="msgerCPHeader" class="msger-private-header">
+            <div class="msger-header-title">
+              <i class="fas fa-comment-alt"></i> Send Private messages
+            </div>
+            <div class="msger-header-options">
+              <button id="msgerCPCloseBtn" class="fas fa-times"></button>
+            </div>
+          </header>
+          <main id="msgerCPChat" class="msger-chat">
+            <div id="msgerCPList"></div>
+          </main>
+        </section>
+      </section>
+      <!-- End private msg -->
+    </section>
+    <!-- End chat room -->
+
+    <!-- Start emoji picker 
+    https://github.com/nolanlawson/emoji-picker-element ] 
+    -->
+    <section id="msgerEmojiPicker">
+      <header id="msgerEmojiHeader">
+        <button id="msgerCloseEmojiBtn" class="fas fa-times"></button>
+      </header>
+      <emoji-picker class="dark"></emoji-picker>
+      <!-- <emoji-picker class="light"></emoji-picker> -->
+    </section>
+    <!-- End emoji picker -->
+
+    <!-- Start my settings -->
+    <section id="mySettings">
+      <header id="mySettingsHeader">
+        <button id="mySettingsCloseBtn" class="fas fa-times"></button>
+      </header>
+      <main>
+        <br />
+        <div>
+          <label>My name:&nbsp;</label><br /><input
+            id="myPeerNameSet"
+            type="text"
+            placeholder="Change name..."
+          />&nbsp;&nbsp;<button
+            id="myPeerNameSetBtn"
+            class="fas fa-paper-plane"
+          >
+            Apply
+          </button>
+        </div>
+        <br />
+        <div>
+          <label>Room actions:&nbsp;</label><br />
+          <button id="muteEveryoneBtn" class="fas fa-microphone">
+            Mute everyone</button
+          >&nbsp;&nbsp;
+          <button id="hideEveryoneBtn" class="fas fa-video">
+            Hide everyone
+          </button>
+        </div>
+        <br />
+        <div>
+          <label for="audioSource">Audio input:&nbsp;</label><br /><select
+            id="audioSource"
+          ></select>
+        </div>
+        <br />
+        <div>
+          <label for="audioOutput">Audio output:&nbsp;</label><br /><select
+            id="audioOutput"
+          ></select>
+        </div>
+        <br />
+        <div>
+          <label for="videoSource">Video source:&nbsp;</label><br /><select
+            id="videoSource"
+          ></select>
+        </div>
+        <br />
+      </main>
+    </section>
+    <!-- End my settings -->
+
+    <!-- Start whiteboard -->
+    <div class="whiteboard-cont">
+      <canvas id="whiteboard" height="1000" width="1000"></canvas>
+      <div class="colors-cont">
+        <button id="whiteboardCloseBtn" class="fas fa-times"></button>
+        <div>
+          <input
+            type="color"
+            id="whiteboardColorPicker"
+            onchange="setColor(value)"
+          />
+        </div>
+        <br />
+        <div
+          class="white"
+          id="whiteboardWhiteColor"
+          onclick="setColor('#ffffff')"
+        ></div>
+        <div
+          class="black"
+          id="whiteboardBlackColor"
+          onclick="setColor('#000000')"
+        ></div>
+        <div class="red" onclick="setColor('#e74c3c')"></div>
+        <div class="yellow" onclick="setColor('#f1c40f')"></div>
+        <div class="green" onclick="setColor('#badc58')"></div>
+        <div class="blue" onclick="setColor('#3498db')"></div>
+        <div class="orange" onclick="setColor('#e67e22')"></div>
+        <div class="purple" onclick="setColor('#9b59b6')"></div>
+        <div class="pink" onclick="setColor('#fd79a8')"></div>
+        <div class="brown" onclick="setColor('#834c32')"></div>
+        <div class="grey" onclick="setColor('gray')"></div>
+        <button id="whiteboardEraserBtn" class="fas fa-eraser"></button>
+        <button id="whiteboardCleanBtn" class="fas fa-trash"></button>
+      </div>
+    </div>
+    <!-- End whiteboard -->
+
+    <!-- Js scripts -->
+    <script
+      src="https://kit.fontawesome.com/d2f1016e6f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdn.rawgit.com/muaz-khan/DetectRTC/master/DetectRTC.js"></script>
+    <!-- https://github.com/sweetalert2/sweetalert2/commit/fa966dd0aa40529363c4a16423ede6e5bc5bf54b -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.8"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/emoji-picker-element@1"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/client.js"></script>
+    <!-- end of Js scripts -->
+
+    <!-- 
+		the <video> and <audio> tags are all added and removed dynamically
+		in 'onAddStream', 'setupLocalMedia', and 'removePeer'/'disconnect'
+		--></body>
+</html>
