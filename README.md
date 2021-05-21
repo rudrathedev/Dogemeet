@@ -36,5 +36,5 @@ Miroslav Pejic
 
 # Demo / Deployed Instance
 
-doge-meet-demo.up.railway.app
+https://doge-meet-demo.up.railway.app
 
