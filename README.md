@@ -11,7 +11,7 @@ SO, hi guys, this is a video calling project based on Webrtc based on the popula
 
 1) run npm install
 2) Once done, run either npm start of node server.js
-3) Go to localhost:3000 **if you are running locally** or go to the deployment url **if deploying on hosting like heroku, railway.app, etc.
+3) Go to localhost:3000 **if you are running locally** or go to the deployment url **if deploying on hosting like heroku, railway.app, etc**.
 
 # Deploy templates
 
@@ -24,7 +24,7 @@ SO, hi guys, this is a video calling project based on Webrtc based on the popula
     <img src="https://www.netlify.com/img/deploy/button.svg" title="Deploy to Netlify">
   </a>
   
-  <a href="https://railway.app/new/template?template=https%3A%2F%2Frailway.app%2Fnew%2Ftemplate%3Ftemplate%3Dhttps%3A%2F%2Fgithub.com%2Fanshuman2166AppproDev%2FDoge-Meet-Sources"> <img src="https://railway.app/button.svg"></a>
+  <a href="https://railway.app/new/template?template=https%3A%2F%2Frailway.app%2Fnew%2Ftemplate%3Ftemplate%3Dhttps%3A%2F%2Fgithub.com%2Fanshuman2166AppproDev%2FDoge-Meet-Sources"> <img src="https://railway.app/button.svg" style="border-radius:10px;"></a>
   
 # Contributing
 
