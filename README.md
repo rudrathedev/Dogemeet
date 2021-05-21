@@ -44,8 +44,3 @@ Miroslav Pejic
 
 https://doge-meet-demo.up.railway.app
 
-<style>
-  .replit {
-  width:200px
-  }
-  </style>
