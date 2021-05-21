@@ -1156,3 +1156,35 @@ button#myHandBtn {
 .msg-img {
     border-radius: 200px;
 }
+input#myPeerNameSet {
+}
+
+button#myPeerNameSetBtn {
+    font-family: 'Josefin Sans';
+    background: #ff914d;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button#hideEveryoneBtn {
+    font-family: 'Josefin Sans';
+}
+
+button#muteEveryoneBtn {
+    font-family: 'Josefin Sans';
+}
+
+select#audioSource {
+    font-family: 'Josefin Sans';
+    background: #ff914d;
+}
+
+select#audioOutput {
+    font-family: 'Josefin Sans';
+    background: #ff914d;
+}
+
+select#videoSource {
+    font-family: 'Josefin Sans';
+    background: #ff914d;
+}
